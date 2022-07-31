@@ -1,7 +1,7 @@
 name: flutter_commands
-description: A starting point for Dart libraries or applications.
+description: A wrapper of Flutter commands used daily for flutter development
 version: 1.0.0
-homepage: https://www.example.com
+homepage: https://github.com/syedmurtaza108/flutter_commands
 
 environment:
   sdk: '>=2.16.2 <3.0.0'
