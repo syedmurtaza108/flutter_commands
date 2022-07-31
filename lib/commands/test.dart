@@ -2,14 +2,13 @@ import 'package:args/command_runner.dart';
 import 'package:flutter_commands/flutter_commands.dart';
 import 'package:mason_logger/mason_logger.dart';
 
-class BuildRunnerCommand extends Command<int> {
+class TestCommand extends Command<int> {
   @override
-  final name = 'build';
+  final name = 'test';
   @override
-  final description =
-      'Wrapper for `flutter pub run build_runner build --delete-conflicting-outputs`';
+  final description = 'Wrapper for `flutter test`';
 
-  BuildRunnerCommand() {
+  TestCommand() {
     argParser.addOption(
       'flutter',
       abbr: 'f',
@@ -23,9 +22,7 @@ class BuildRunnerCommand extends Command<int> {
   Future<int> run() async {
     FCMRunner.logger.info(yellow.wrap('Executing...'));
     final flutterAlias = argResults?['flutter'] as String? ?? 'flutter';
-    await FCMRunner.shell.run(
-      '$flutterAlias pub run build_runner build --delete-conflicting-outputs',
-    );
+    await FCMRunner.shell.run('$flutterAlias test');
     FCMRunner.logger.success('Command executed successfully');
     return 0;
   }

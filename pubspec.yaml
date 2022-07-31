@@ -16,4 +16,4 @@ dependencies:
   process_run: ^0.12.3+2
 
 executables:
-  flutter_commands:
+  fcm:
