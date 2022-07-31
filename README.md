@@ -1,39 +1,39 @@
-<!-- 
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages). 
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages). 
--->
-
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+A wrapper of Flutter commands, used daily for flutter development.
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+Currently, these commands are available. 
+Wrapper Command | Flutter Command
+--- | --- 
+`fcm apk` | `flutter build apk --dart-define="env=env" --flavor flavor --target target`
+`fcm build` | `flutter pub run build_runner build --delete-conflicting-outputs`
+`fcm fmt` | `flutter format .`
+`fcm ipa` | `flutter build ipa --release --dart-define="env=env" --flavor flavor --export-options-plist=export-options.plist --target target`
+`fcm run` | `flutter run --dart-define="env=env" --flavor flavor --target target`
+`fcm ss` | `flutter screenshot`
+`fcm test` | `flutter test`
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Activate this package in the machine using this command
+```
+dart pub global activate --source git https://github.com/syedmurtaza108/flutter_commands
+```
+
+To deactivate this package
+```
+dart pub global deactivate flutter_commands
+```
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder. 
+Following flags can also be used to manipulate default behaviour of the commands
+Flag | Availability | Description
+--- | --- | ---
+`-h, --help` | all | Prints usage information
+`-f, --flutter` | all | Modifies default alias (`flutter`) to the given one. e.g. `fcm fmt -f flutter2` would run `flutter2 format .`
+`-e, --env` | `run`, `apk`, `ipa` | Changes the environment of flutter application
+`-l, --flavor` | `run`, `apk`, `ipa` | Changes the flavor of flutter application
+`-x, --export-options` | `ipa` | Changes the `export-options-plist` flag of `flutter build ipa` command
+`-l, --flavor` | `run`, `apk`, `ipa` | Changes the flavor of flutter application
 
-```dart
-const like = 'sample';
-```
-
-## Additional information
-
-TODO: Tell users more about the package: where to find more information, how to 
-contribute to the package, how to file issues, what response they can expect 
-from the package authors, and more.
